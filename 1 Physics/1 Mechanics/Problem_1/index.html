@@ -172,9 +172,42 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<p>I am Aidai
-<span class="arithmatex">\(<span class="arithmatex">\(a^2+b^2=c^2\)</span>\)</span>
-second mod</p>
+<p>import numpy as np
+import matplotlib.pyplot as plt</p>
+<h1 id="set-up-basic-initial-conditions">Set up basic initial conditions</h1>
+<p>initial_velocity = 50  # m/s
+gravity = 9.81         # m/s²</p>
+<h1 id="generate-a-list-of-angles-from-0-to-90-degrees">Generate a list of angles from 0 to 90 degrees</h1>
+<p>angles_deg = np.linspace(0, 90, 500)
+angles_rad = np.radians(angles_deg)  # Convert degrees to radians</p>
+<h1 id="calculate-projectile-range-for-each-angle-using-the-classic-physics-formula">Calculate projectile range for each angle using the classic physics formula</h1>
+<h1 id="r-v2-sin2-g">R = (v^2 * sin(2θ)) / g</h1>
+<p>ranges = (initial_velocity ** 2) * np.sin(2 * angles_rad) / gravity</p>
+<h1 id="plot-the-results">Plot the results</h1>
+<p>plt.figure(figsize=(10, 6))
+plt.plot(angles_deg, ranges, color='steelblue', label=f'Initial speed = {initial_velocity} m/s')
+plt.title('Projectile Range vs Launch Angle')
+plt.xlabel('Launch Angle (degrees)')
+plt.ylabel('Range (meters)')
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()</p>
+<h1 id="projectile-motion-range-vs-launch-angle">Projectile Motion: Range vs Launch Angle</h1>
+<h2 id="objective">🎯 Objective</h2>
+<p>The goal of this project is to explore how the horizontal distance (range) of a projectile depends on the angle at which it's launched. This is a classic problem in physics, but it’s also a great example of how mathematical models describe real-world motion.</p>
+<h2 id="theoretical-background">⚙️ Theoretical Background</h2>
+<p>The equation for the range <span class="arithmatex">\( R \)</span> of a projectile (assuming no air resistance and launch/landing at the same height) is:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \cdot \sin(2\theta)}{g}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( v_0 \)</span> is the initial velocity,
+- <span class="arithmatex">\( \theta \)</span> is the launch angle,
+- <span class="arithmatex">\( g \)</span> is the acceleration due to gravity (9.81 m/s²).</p>
+<p>This formula shows that the range depends on the sine of <strong>double</strong> the launch angle. The range reaches a maximum when <span class="arithmatex">\( \theta = 45^\circ \)</span>, because <span class="arithmatex">\( \sin(90^\circ) = 1 \)</span>.</p>
+<h2 id="implementation">💻 Implementation</h2>
+<p>The simulation is written in Python using <code>numpy</code> and <code>matplotlib</code>. It calculates and plots the projectile range for angles between 0° and 90°, with a fixed initial speed.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
